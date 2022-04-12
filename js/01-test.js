@@ -33,19 +33,19 @@ for(let i = 0; i <= 10; i+=2) {
 4. Naudojant for ciklą, sugeneruoti penkis atsitiktinius num nuo 1 iki 10. Išvesti juos konsolėje. (5 taškai)
 */
 
-function atsitiktinisNum(min, max) {
+function rand(min, max) {
     return Math.floor(Math.random()*(max-min+1)+min);
 } for (let i = 0; i < 5; i++) {
-     console.log(atsitiktinisNum(1,10));
+     console.log(rand(1,10));
  }
 
 /*
 5. Naudojant while ciklą, spausdinti atsitiktinius num nuo 1 iki 10. Paskutinis atspausdintas num turi būti 5. (7 taškai)
 */
 
-let e = 0;
+let e;
 while (e !== 5) {
-     e = Math.floor(Math.random() * 10);
+     e = rand(1,10);
      console.log(e)
 }
 
@@ -56,11 +56,9 @@ console.log('----------------------')
 
 function number(masyvas) {
     let biggestNumber = -Infinity;
-    for (let i = 0; i < masyvas.letter; i++) {
+    for (let i = 0; i < masyvas.length; i++) {
         const num = masyvas[i];
-        if (typeof num !== 'number' || !isFinite(num)) {
-            continue;
-        } if (num > biggestNumber) {
+       if (num > biggestNumber) {
             biggestNumber = num;
         }
     } return biggestNumber;
@@ -87,30 +85,6 @@ console.log('max: ' + max);
 /*
 7. Sugeneruokite masyvą, kurio reikšmės atsitiktinės raidės A, B, C ir D, o ilgis 100. Suskaičiuokite kiek yra kiekvienos raidės. (7 taškai)
 */
-
-const letter = ['A', 'B', 'C', 'D']
-function count(letters) {
-    const X = {};
-    for (let i = 0; i < 100; i++) {
-        const a = letters[i];
-        X[a] = (X[a] || 0) + 1
-    }
-    return X;
-}
-console.log(count(letter))
-
-
-const letters = ('A', 'B', 'C', 'D');
-function generate(letter) {
-    let result = ' ';
-    const lettersletter = letters.letter;
-    for ( let i = 0; i < 100; i++ ) {
-        result += letters.charAt(Math.floor(Math.random() * lettersletter));
-    }
-    return result;
-}
-
-console.log(generate());
 
 console.log('-----MENTORIAUS BŪDAS-----')
 
@@ -189,17 +163,24 @@ console.log('-----MANO BŪDAS, BE MENTORIAUS NEVEIKIA-----')
 
 const c = 17
 function pirminisSkaicius(c) {
-    if (typeof number === 'number') {
+    if (typeof c === 'number') {
         let count = 0;
         for (let i = 2; i < c; i++) {
             if (c % i === 0) {
                 count++
-            } return `Skaičius yra pirminis`
+            }
+        } 
+        if (count === 0) {
+            return `Skaičius yra pirminis`
+        } else {
+            return `Skaičius yra sudetinis`
         }
-    } 
+    }  else {
+        return `Įvestas netinkamas kintamasis`
+    }
 }
 console.log(pirminisSkaicius(c));
-
+/*
 console.log('-----MENTORIAUS BŪDAS-----')
 
 function pirminisSkaicius(a) {
@@ -222,11 +203,11 @@ function pirminisSkaicius(a) {
         return 'Įvestas skaičius yra sudėtinis';
     }
 }
-
+*/
 console.log(pirminisSkaicius('asdf'));
 console.log(pirminisSkaicius([4,4,'sdf']));
-console.log(pirminisSkaicius(0));
-console.log(pirminisSkaicius(1));
+//console.log(pirminisSkaicius(0));
+//console.log(pirminisSkaicius(1));
 console.log(pirminisSkaicius(2));
 console.log(pirminisSkaicius(3));
 console.log(pirminisSkaicius(15));
@@ -237,8 +218,7 @@ console.log(pirminisSkaicius(17));
 // }
 
 /*
-10. Parašyti funkciją telefonoNumeris. Funkcija turi priimti vieną kintamąjį - masyvą. Masyvo elementai - skaičiai, ilgis - 10. Funkcija turi grąžinti telefono numerį tokiu formatu - 
-"(XXX) XXX-XXXX". (10 taškų)
+10. Parašyti funkciją telefonoNumeris. Funkcija turi priimti vieną kintamąjį - masyvą. Masyvo elementai - skaičiai, ilgis - 10. Funkcija turi grąžinti telefono numerį tokiu formatu - "(XXX) XXX-XXXX". (10 taškų)
 */
 
 console.log('-----MANO BŪDAS-----')
